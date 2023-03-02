@@ -2,25 +2,16 @@
 require_once './class/Answer.php';
 require_once './class/Question.php';
 require_once './class/Qcm.php';
+require_once './config/connexion.php';
 
 function pretyDump($data){
     highlight_string("<?php\n\$data =\n" . var_export($data, true) . ";\n?>");
 }
 
-$qcm = new Qcm();
 
-$question1 = new Question("POO signifie :");
-
-$question1->setAnswer(new Answer("Php Orienté Objet"));
-$question1->setAnswer(new Answer("ProgrammatiOn Orientée Outil"));
-$question1->setAnswer(new Answer("Programmation Orientée Objet", true));
-$question1->setAnswer(new Answer("Papillon Onirique Ostentatoire"));
-$question1->setExplaination("Sans commentaires si vous avez eu faux :-°");
-
-$qcm->setQuestions($question1);
+$qcm = new Qcm($db);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

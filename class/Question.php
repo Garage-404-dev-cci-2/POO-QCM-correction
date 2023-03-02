@@ -1,16 +1,19 @@
 <?php 
 class Question 
 {
+    private $id;
     private $title;
     private $explaination;
     private $answers = [];
 
-    public function __construct(string $title)
+    public function __construct(array $data)
     {
-        $this->setTitle($title);
+        $this->setId($data['id']);
+        $this->setTitle($data['title']);
+        $this->setExplaination($data['explaination']);
     }
 
-    //GETER ET SETER answers
+    //GETTER ET SETTER answers
     public function setAnswer(Answer $answer)
     {
         array_push($this->answers, $answer);
@@ -20,7 +23,7 @@ class Question
         return $this->answers;
     }
 
-    //GETER ET SETER content
+    //GETTER ET SETTER content
     public function getTitle()
     {
         return $this->title;
@@ -30,7 +33,7 @@ class Question
         $this->title = $variable;
     }
 
-    //GETER ET SETER isTrue
+    //GETTER ET SETTER isTrue
     public function getExplaination()
     {
         return $this->explaination;
@@ -40,4 +43,22 @@ class Question
         $this->explaination = $variable;
     }
 
+
+    /**
+     * Get the value of id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     */
+    public function setId($id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 }

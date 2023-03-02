@@ -1,13 +1,17 @@
 <?php
 class Answer 
 {
+    private $id;
     private $content;
     private $isTrue;
+    private $questionId;
 
-    public function __construct(string $content , bool $isTrue = false)
+    public function __construct(array $data)
     {
-        $this->setIsTrue($isTrue);
-        $this->setContent($content);
+        $this->setId($data["id"]);
+        $this->setContent($data["content"]);
+        $this->setIsTrue($data["is_true"]);
+        $this->setQuestionId($data["question_id"]);
         
     }
 
@@ -31,4 +35,40 @@ class Answer
         $this->isTrue = $variable;
     }
 
+
+    /**
+     * Get the value of id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     */
+    public function setId($id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of questionId
+     */
+    public function getQuestionId()
+    {
+        return $this->questionId;
+    }
+
+    /**
+     * Set the value of questionId
+     */
+    public function setQuestionId($questionId): self
+    {
+        $this->questionId = $questionId;
+
+        return $this;
+    }
 }
